@@ -1,0 +1,71 @@
+body{
+	font-family: 'Roboto', sans-serif;
+	color: #fcffff;
+	background-color: #01a850;
+	background-image: url('piedpiper.png');
+}
+
+#container{
+	width:800px;
+	margin:50px auto;
+	padding: 20px;
+	width:50%;
+}
+#container h2{
+	text-align:center;
+	color:#045;
+}
+
+#quoteContainer{
+	width:75%;
+	background: #00a850;
+	padding:10px;
+	margin:30px auto;
+	text-align: center;
+  height:70px;
+}
+#buttonContainer{
+	width: 100%;
+	text-align: center;
+}
+#quoteButton{
+	width:200px;
+	margin-top: 25px;
+	border:2px solid #3a3a38;
+	color:#045;
+	font-family: inherit;
+	font-weight: bold;
+	padding:10px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#quoteButton:hover{
+	cursor:pointer;
+	background:#3a3a3a;
+	color: #fff;	
+}
+#quoteButton:active{
+	cursor: pointer;
+}
+#quoteButton{
+	display: inline-block;
+}
+#quoteGenius{
+	font-style: italic;
+	font-weight: 600;
+	text-align: center;
+}
+
+#logo {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+/*MEDIA QUERIES*/
+@media screen and(max-width:760px){
+	#quoteButton,#addNew{
+		display: block;
+	}
+}

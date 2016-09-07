@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pied Piper</title>
+	<link rel="stylesheet" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+	<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+
+
+
+<script>
+	$(document).ready(function(){
+		var quoteSource=[
+		{
+			quote: "Life is about making an impact, not making an income.",
+			name:"Kevin Kruse"
+	    },
+	    {
+	    	quote:"Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.",
+	    	name:"Robert Frost"
+	    },
+	    {
+	    	quote:"Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails.  Explore, Dream, Discover.",
+	    	name:"Mark Twain"
+	    },
+	    {
+	    	quote:"If you can see the positive sides of everything, you'll be able to live a much richer life than others.",
+	    	name:"Celestine Chua"
+	    },
+	    {
+	    	quote:"Things work out best for those who make the best of how things work out",
+	    	name:"John Wooden"
+	    },
+	    {
+	    	quote:"Don't watch the clock; do what it does. Keep going.",
+	    	name:"Sam Levenson"
+	    },
+	    {
+	    	quote:"Success is walking from failure to failure with no loss of enthusiasm.",
+	    	name:"Winston Churchhill"
+	    },
+	    {
+	    	quote:"People who succeed have momentum. The more they succeed, the more they want to succeed, and the more they find a way to succeed. Similarly, when someone is failing, the tendency is to get on a downward spiral that can even become a self-fulfilling prophecy.",
+	    	name:"Tony Robbins"
+	    },
+	    {
+	    	quote:"To live a creative life, we must lose our fear of being wrong.",
+	    	name:"Anonymous"
+	    },
+	    {
+	    	quote:"Accept who you are. Unless you're a serial killer.",
+	    	name:"Ellen DeGeneres"
+	    },
+	    {
+	    	quote:"Your time is limited, so don’t waste it living someone else’s life.",
+	    	name:"Steve Jobs"
+	    },
+	    {
+	    	quote:"Be yourself; everyone else is already taken.",
+	    	name:"Oscar Wilde"
+	    },
+	    {
+	    	quote:"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+	    	name:"Albert Einstein"
+	    },
+	    {
+	    	quote:"Sometimes life is going to hit you in the head with a brick. Don't lose faith.",
+	    	name:"Steve Jobs"
+	    },
+	    {
+	    	quote:"Success is a lousy teacher. It seduces smart people into thinking they can't lose.",
+	    	name:"Bill Gates"
+	    },
+	    {
+	    	quote:"People who think they know everything are a great annoyance to those of us who do.",
+	    	name:"Isaac Asimov"
+	    },
+	    {
+	    	quote:"With the new day comes new strength and new thoughts",
+	    	name:"Eleanor Roosevelt"
+	    },
+	];
+		//animations from github
+
+		$('#quoteButton').click(function(evt){
+			//define the containers of the info we target
+			var quote = $('#quoteContainer p').text();
+			var quoteGenius = $('#quoteGenius').text();
+			//prevent browser's default action
+			evt.preventDefault();
+			//getting a new random number to attach to a quote and setting a limit
+			var sourceLength = quoteSource.length;
+			var randomNumber= Math.floor(Math.random()*sourceLength);
+			//set a new quote
+			for(i=0;i<=sourceLength;i+=1){
+			var newQuoteText = quoteSource[randomNumber].quote;
+			var newQuoteGenius = quoteSource[randomNumber].name;
+			//console.log(newQuoteText,newQuoteGenius);
+      var timeAnimation = 600;
+      var quoteContainer = $('#quoteContainer');
+      //fade out animation with callback
+      quoteContainer.fadeOut(timeAnimation, function(){
+        quoteContainer.html('');
+				quoteContainer.append('<p>'+newQuoteText+'</p>'+'<p id="quoteGenius">'+'-								'+newQuoteGenius+'</p>');
+        
+        //fadein animation.
+        quoteContainer.fadeIn(timeAnimation);
+      });  
+			
+			break;
+		};//end for loop
+	
+	});//end quoteButton function
+		
+		
+});//end document ready
+
+
+</script>
+
+
+
+	<div id="container">
+		<h2>Let the pied piper play</h2>
+			<div id="quoteContainer">
+				<p></p>
+				<p id="quoteGenius"></p>			
+			</div><!--end quoteContainer-->
+			
+			<div id="buttonContainer">
+				<a href="#" id="quoteButton">flute that motivation</a>
+		</div><!--end buttonContainer-->
+	</div><!--end container-->
+
+<div id="logo">
+<h2>Made by Jeraldy, idea from Dempsey.</h2>
+</div>
+
+
+
+
+</body>
+</html>
