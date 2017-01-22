@@ -1,0 +1,151 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pied Piper</title>
+	<link rel="stylesheet" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+	<script src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://raw.githubusercontent.com/wilq32/jqueryrotate/master/jQueryRotate.js"></script>
+</head>
+<body>
+
+<audio 
+	src="pipey.mp3"
+	autoplay>
+ Your browser does not support the <code>audio</code> element.
+</audio>
+
+
+
+<script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
+
+
+
+<div id="pipeyman">
+	<img src="pipeyman.png">
+</div>
+
+<div id="githubacc">
+	<img src="mygithub.png">
+</div>
+
+
+	<div id="container">
+		<h2>Let the pied piper play</h2>
+			<div id="quotebox">
+				<p>Motivation Generator</p>		
+			</div>
+			<div id="quoteauthor">
+			<p></p>
+			</div>
+			
+			<div id="buttonContainer">
+				<a href="#" id="quoteButton">flute that motivation</a>
+		</div><!--end buttonContainer-->
+	</div><!--end container-->
+
+<div id="logo">
+<h2>Made by Jeraldy, idea from Dempsey.</h2>
+</div>
+
+
+
+
+<script>
+
+	$(document).ready(function(){
+
+//******************************************************source quotes*******************************************************************\\
+	var quotes = [
+	["Life is about making an impact, not making an income.", "Kevin Cruse"],
+
+	["Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.", "Robert Frost"],
+
+	["Success is walking from failure to failure with no loss of enthusiasm.", "Winston Churchill"],
+
+	["Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails.  Explore, Dream, Discover.", "Mark Twain"],
+	["If you can see the positive sides of everything, you'll be able to live a much richer life than others.", "Celestine Chua"],
+	["Things work out best for those who make the best of how things work out", "John Wooden"],
+	["Don't watch the clock; do what it does. Keep going.", "Sam Levenson"],
+	["People who succeed have momentum. The more they succeed, the more they want to succeed, and the more they find a way to succeed. Similarly, when someone is failing, the tendency is to get on a downward spiral that can even become a self-fulfilling prophecy.", "Tony Robbins"],
+	["To live a creative life, we must lose our fear of being wrong.", "Anonymous"],
+	["Accept who you are. Unless you're a serial killer.", "Ellen DeGeneres"],
+	["Your time is limited, so don’t waste it living someone else’s life.", "Steve Jobs"],
+	["Be yourself; everyone else is already taken.", "Oscar Wilde"],
+	["Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.", "Albert Einstein"],
+	["Sometimes life is going to hit you in the head with a brick. Don't lose faith.", "Steve Jobs"],
+	["Success is a lousy teacher. It seduces smart people into thinking they can't lose.", "Bill Gates"],
+	["People who think they know everything are a great annoyance to those of us who do.", "Isaac Asimov"],
+	["With the new day comes new strength and new thoughts", "Eleanor Roosevelt"]
+	
+
+
+	];
+
+//******************************************************enouff quote*******************************************************************\\
+
+//jquery rotation animations (just testing) all animations are examples made by the creator
+	var value = 0
+	$("#quoteButton").rotate({
+  bind:
+  {
+    click: function(){
+      value +=180;
+      $(this).rotate({ animateTo:value})
+    }
+ 	 }
+	});
+
+
+var angle = 0;
+  setInterval(function(){
+    angle+=3;
+
+    if (angle >= 35) {
+    	angle = 35
+}
+
+  $("#pipeyman").rotate(angle);
+  },55);
+
+
+var rotation = function (){
+  $("#quotebox").rotate({
+    angle:0,
+    animateTo:360,
+  });
+}
+
+var githubangle = 0;
+  setInterval(function(){
+    githubangle+=3;
+  $("#githubacc").rotate(githubangle);
+  },50);
+
+
+//quote generator
+$('#quoteButton').click(function(){
+
+rotation(); //exec rotation quote function
+
+
+var random = quotes[Math.floor( Math.random() * quotes.length )]; //basic randomizer; todo; stop repeating quotes...
+var newquote = random[0];
+var newauthor = random[1];
+
+$("#quotebox").text(newquote); //grabs new quote
+
+$("#quoteauthor").text(" ~ " + newauthor); //along with the author
+
+
+	
+	});//end quoteButton function
+		
+		
+});//end document ready
+
+
+</script>
+
+</body>
+</html>
